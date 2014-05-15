@@ -1,0 +1,152 @@
+	/**
+	 * ..:: [mongeez-gradle-plugin] ::..
+	 */
+
+	apply plugin: 'groovy'
+	apply plugin: 'maven'
+	apply plugin: 'signing'
+	apply plugin: 'eclipse'
+	apply plugin: 'idea'
+
+	group = 'org.venom.gradle'
+	version = '1.0.0-SNAPSHOT'
+
+	ext {
+		archivesBaseName = 'gradle-mongeez-plugin'
+
+		isReleaseVersion = !version.endsWith( 'SNAPSHOT' )
+	}
+
+	sourceCompatibility = 1.7
+
+	repositories {
+		mavenCentral()
+	}
+
+	configurations {
+		deployerJars
+
+		provided
+
+		testProvided { extendsFrom provided }
+	}
+
+	sourceSets {
+		main { compileClasspath += configurations.provided }
+		test { compileClasspath += configurations.provided + configurations.testProvided }
+	}
+
+	idea {
+		project {
+			jdkName = "1.7"
+		}
+
+		module {
+			downloadJavadoc = true
+			downloadSources = true
+
+			scopes.PROVIDED.plus += configurations.provided
+		}
+	}
+
+	dependencies {
+		deployerJars group: 'org.apache.maven.wagon', name: 'wagon-ssh', version: '2.4'
+
+		compile localGroovy()
+
+		compile gradleApi()
+
+		compile "org.mongeez:mongeez:0.9.4:"
+
+		testCompile 'org.spockframework:spock-core:0.7-groovy-1.8', {
+			exclude module: 'groovy-all'
+		}
+	}
+
+	jar {
+		baseName 'gradle-mongeez-plugin'
+
+		manifest {
+			attributes "Implementation-Title": 'gradle-mongeez-plugin',
+						"Implementation-Version": version.toString(),
+						"Build-Jdk": System.properties[ 'java.version' ]
+		}
+	}
+
+	groovydoc {
+		dependsOn classes
+	}
+
+	task sourceJar( type: Jar, dependsOn: classes ) {
+		baseName = archivesBaseName
+		classifier = 'sources'
+		from sourceSets.main.allSource
+	}
+
+	task groovydocJar( type: Jar, dependsOn: groovydoc ) {
+		baseName = archivesBaseName
+		classifier = 'groovydoc'
+		from groovydoc.destinationDir
+	}
+
+	artifacts {
+		archives jar
+		archives sourceJar
+		archives groovydocJar
+	}
+
+	signing {
+		if ( isReleaseVersion ) {
+			sign configurations.archives
+		}
+	}
+
+	configure( install.repositories.mavenInstaller ) {
+		pom.project {
+			licenses {
+				license {
+					name = "The Apache Software License, Version 2.0"
+					url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+					distribution 'repo'
+				}
+			}
+		}
+	}
+
+	uploadArchives {
+		repositories {
+			mavenDeployer {
+				beforeDeployment { MavenDeployment deployment -> signing.signPom( deployment ) }
+
+				/*uniqueVersion = false*/ /* FIXME Remove in production */
+
+				repository( url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/" ) {
+					authentication( userName: sonatypeUsername, password: sonatypePassword )
+				}
+
+				pom.project {
+					name 'Mongeez Gradle Plugin'
+					description 'Mongeez Gradle is a Gradle plugin for managing'
+					url 'https://github.com/mborra/mongeez-gradle-plugin/'
+
+					scm {
+						url 'scm:git@github.com:MongeezGradle/MongeezGradle.git'
+						connection 'scm:git@github.com:MongeezGradle/MongeezGradle.git'
+						developerConnection 'scm:git@github.com:MongeezGradle/MongeezGradle.git'
+					}
+
+					developers {
+						developer {
+							id 'mborra'
+							name 'Marino Borra'
+						}
+					}
+				}
+			}
+		}
+	}
+	uploadArchives.dependsOn ':build'
+
+	task wrapper( type: Wrapper ) {
+		gradleVersion = '1.11'
+	}
