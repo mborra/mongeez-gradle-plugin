@@ -11,7 +11,7 @@ mongeez-gradle-plugin
 			mavenLocal()
 		}
 		dependencies {
-			classpath "org.venom.gradle:gradle-mongeez-plugin:1.0.0-SNAPSHOT"
+			classpath "org.venom.gradle:mongeez-gradle-plugin:1.0.0-SNAPSHOT"
 		}
 	}
 

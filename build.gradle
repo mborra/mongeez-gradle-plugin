@@ -12,7 +12,7 @@
 	version = '1.0.0-SNAPSHOT'
 
 	ext {
-		archivesBaseName = 'gradle-mongeez-plugin'
+		archivesBaseName = 'mongeez-gradle-plugin'
 
 		isReleaseVersion = !version.endsWith( 'SNAPSHOT' )
 	}
@@ -64,10 +64,10 @@
 	}
 
 	jar {
-		baseName 'gradle-mongeez-plugin'
+		baseName 'mongeez-gradle-plugin'
 
 		manifest {
-			attributes "Implementation-Title": 'gradle-mongeez-plugin',
+			attributes "Implementation-Title": 'mongeez-gradle-plugin',
 						"Implementation-Version": version.toString(),
 						"Build-Jdk": System.properties[ 'java.version' ]
 		}
