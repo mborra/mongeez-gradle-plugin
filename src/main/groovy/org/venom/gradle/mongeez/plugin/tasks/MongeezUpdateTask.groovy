@@ -25,7 +25,7 @@ import org.venom.gradle.mongeez.model.MongeezDatabase
 import org.venom.gradle.mongeez.plugin.MongeezPluginExtension
 
 /**
- * Created by marino.borra@gmail.com on 02/05/2014.
+ * Created by Marino Borra on 02/05/2014.
  */
 class MongeezUpdateTask extends DefaultTask {
 

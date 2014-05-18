@@ -126,7 +126,7 @@
 
 				pom.project {
 					name 'Mongeez Gradle Plugin'
-					description 'Mongeez Gradle is a Gradle plugin for managing'
+					description 'Mongeez Gradle is a Gradle plugin for migrating MongoDB Databases'
 					url 'https://github.com/mborra/mongeez-gradle-plugin/'
 
 					scm {

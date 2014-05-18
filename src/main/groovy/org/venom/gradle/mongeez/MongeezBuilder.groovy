@@ -27,7 +27,7 @@ import org.venom.gradle.mongeez.model.MongeezAuthentication
 import org.venom.gradle.mongeez.model.MongeezDatabase
 
 /**
- * Created by marino.borra@gmail.com on 06/05/2014.
+ * Created by Marino Borra on 06/05/2014.
  */
 @Slf4j
 class MongeezBuilder implements Builder<Mongeez> {
@@ -103,7 +103,7 @@ class MongeezBuilder implements Builder<Mongeez> {
 		if ( changeFiles.exists() ) {
 			mongeez.setFile( new UrlResource( "file:".concat( changeFiles.absolutePath ) ) ) /* Is too tightly coupled with Spring*/
 		} else {
-			/* TODO Implement a StopActionException in funzione del flag failFast da creare */
+			/* TODO Implement a StopActionException on function of failFast flag, to create */
 			throw new StopExecutionException( "Change files:[${changeFiles}] doesn't exist" )
 		}
 	}

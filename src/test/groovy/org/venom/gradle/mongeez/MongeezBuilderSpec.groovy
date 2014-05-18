@@ -20,7 +20,7 @@ import org.venom.gradle.mongeez.plugin.tasks.MongeezUpdateTask
 import spock.lang.Specification
 
 /**
- * Created by marino.borra@gmail.com on 06/05/2014.
+ * Created by Marino Borra on 06/05/2014.
  */
 class MongeezBuilderSpec extends Specification {
 

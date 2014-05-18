@@ -21,7 +21,7 @@ import org.gradle.api.tasks.Input
 import org.gradle.internal.reflect.Instantiator
 
 /**
- * Created by marino.borra@gmail.com on 05/05/2014.
+ * Created by Marino Borra on 05/05/2014.
  */
 class MongeezDatabase {
 

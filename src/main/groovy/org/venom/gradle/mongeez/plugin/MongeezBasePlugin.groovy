@@ -27,7 +27,7 @@ import org.venom.gradle.mongeez.plugin.tasks.MongeezUpdateTask
 import javax.inject.Inject
 
 /**
- * Created by marino.borra@gmail.com on 01/05/2014.
+ * Created by Marino Borra on 01/05/2014.
  */
 @Slf4j
 class MongeezBasePlugin implements Plugin<Project> {

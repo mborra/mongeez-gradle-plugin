@@ -19,7 +19,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 /**
- * Created by marino.borra@gmail.com on 01/05/2014.
+ * Created by Marino Borra on 01/05/2014.
  */
 class MongeezPlugin implements Plugin<Project> {
 

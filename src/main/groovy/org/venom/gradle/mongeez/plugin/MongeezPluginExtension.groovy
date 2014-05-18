@@ -22,7 +22,7 @@ import org.gradle.internal.reflect.Instantiator
 import org.venom.gradle.mongeez.model.MongeezDatabase
 
 /**
- * Created by marino.borra@gmail.com on 01/05/2014.
+ * Created by Marino Borra on 01/05/2014.
  */
 @Slf4j
 class MongeezPluginExtension {

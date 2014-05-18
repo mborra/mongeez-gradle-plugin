@@ -1,4 +1,4 @@
-mongeez-gradle-plugin
+mongeez-gradle-plugin <sub>(Experimental)</sub>
 =====================
 
 [Mongeez](https://github.com/secondmarket/mongeez) ([MongoDB](http://www.mongodb.org) Easy Change Management) [Gradle](http://www.gradle.org) Plugin
@@ -51,7 +51,7 @@ mongeez-gradle-plugin
 	}
 
 	task mongeezUpdateLocal( type: MongeezUpdateTask, description: "Update MongoDB" ) {
-		changeFiles { "$projectDir/conf/mongeez.xml" }
+		changeFiles { "$projectDir/src/main/resources/mongeez.xml" }
 	}
 
 ```

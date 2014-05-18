@@ -16,7 +16,7 @@
 package org.venom.gradle.mongeez.model
 
 /**
- * Created by marino.borra@gmail.com on 03/05/2014.
+ * Created by Marino Borra on 03/05/2014.
  */
 class MongeezAuthentication {
 

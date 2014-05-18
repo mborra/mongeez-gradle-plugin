@@ -18,7 +18,7 @@ package org.venom.gradle.mongeez.exceptions
 import groovy.transform.InheritConstructors
 
 /**
- * Created by marino.borra@gmail.com on 15/05/2014.
+ * Created by Marino Borra on 15/05/2014.
  */
 @InheritConstructors
 class NotYetImplemented extends RuntimeException {
