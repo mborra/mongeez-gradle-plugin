@@ -3,3 +3,5 @@ language: groovy
 jdk:
   - oraclejdk7
   - oraclejdk6
+
+install: ./gradlew assemble --stacktrace
