@@ -7,4 +7,4 @@ jdk:
 before_install:
   - chmod +x gradlew
 
-install: ./gradlew assemble --stacktrace -PsonatypeUsername="" -PsonatypePassword=""
+install: ./gradlew build --stacktrace
