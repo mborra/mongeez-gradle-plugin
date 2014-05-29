@@ -1,4 +1,4 @@
-mongeez-gradle-plugin <sub>(Experimental)</sub>
+mongeez-gradle-plugin <sub>(Experimental)</sub> [![Build Status](https://travis-ci.org/mborra/mongeez-gradle-plugin.svg?branch=master)](https://travis-ci.org/mborra/mongeez-gradle-plugin)
 =====================
 
 [Mongeez](https://github.com/secondmarket/mongeez) ([MongoDB](http://www.mongodb.org) Easy Change Management) [Gradle](http://www.gradle.org) Plugin
